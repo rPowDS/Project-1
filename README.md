@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/doc/img/fashion-mnist-sprite.png" width="700">
+  <img src="https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/doc/img/fashion-mnist-sprite.png" width="700" alt="Fashion-MNIST Image Banner">
 </p>
 
 # Analyzing Fashion-MNIST with Machine Learning
@@ -8,7 +8,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg" alt="Python 3.9+">
-  <img src="https://img.io/badge/TensorFlow-2.x-FF6F00.svg" alt="TensorFlow">
+  <img src="https://img.shields.io/badge/TensorFlow-2.x-FF6F00.svg" alt="TensorFlow">
   <img src="https://img.shields.io/badge/Scikit--Learn-1.x-F89939.svg" alt="Scikit-Learn">
   <img src="https://img.shields.io/badge/Project-Complete-green.svg" alt="Project Complete">
 </p>
@@ -19,8 +19,8 @@
 
 This repository explores two machine learning approaches for the Fashion-MNIST dataset. Here's what you'll find:
 
-* **Project Report:** [**Read the full PDF Report**](Project_Report.pdf) *(Please rename your `Copy of DS200 Project2 Report.docx.pdf` to `Project_Report.pdf`)*
-* **Project Slides:** [**View the Presentation Slides**](Project_Slides.pdf) *(Please rename your `DS200 Analyzing Fashion-MNIST dataset.pdf` to `Project_Slides.pdf`)*
+* **Project Report:** [**Read the full PDF Report**](Project_Report.pdf)
+* **Project Slides:** [**View the Presentation Slides**](Project_Slides.pdf)
 * **Notebook 1:** [**Random Forest Classifier**](1_Random_Forest_Classifier.ipynb)
 * **Notebook 2:** [**CNN Classifier**](2_CNN_Classifier.ipynb)
 
@@ -39,7 +39,7 @@ We implemented, trained, and evaluated both models from scratch to compare their
 We used the **Fashion-MNIST dataset**, a popular "drop-in replacement" for the original MNIST dataset, which is more complex and provides a better benchmark for modern ML algorithms.
 
 <p align="center">
-  <img src="images/fashion_mnist_examples.png" width="500" alt="Examples of Fashion-MNIST images">
+  <img src="images/Dataset.png" width="600" alt="Examples of Fashion-MNIST images and labels">
   <br>
   <em>A sample of images from the Fashion-MNIST dataset, illustrating the 10 distinct classes.</em>
 </p>
@@ -47,16 +47,6 @@ We used the **Fashion-MNIST dataset**, a popular "drop-in replacement" for the o
 * **Contents:** 70,000 grayscale images (60k training, 10k test)
 * **Image Size:** $28 \times 28$ pixels
 * **Classes:** 10 categories of fashion products
-    * `0`: T-shirt/top
-    * `1`: Trouser
-    * `2`: Pullover
-    * `3`: Dress
-    * `4`: Coat
-    * `5`: Sandal
-    * `6`: Shirt
-    * `7`: Sneaker
-    * `8`: Bag
-    * `9`: Ankle boot
 
 ## 🤖 Models & Methodology
 
@@ -67,6 +57,12 @@ We implemented two distinct models to compare a classical machine learning appro
 
 2.  **Convolutional Neural Network (CNN):** A deep learning architecture specifically designed for computer vision. CNNs are built to automatically and adaptively learn spatial hierarchies of features from images.
     * *Implementation:* `TensorFlow` and `Keras`
+
+<p align="center">
+  <img src="images/Data_Pipeline.png" width="700" alt="Project data pipeline steps">
+  <br>
+  <em>Our 4-step process: 1. Data Loading, 2. Model Implementation, 3. Training & Evaluation, 4. Comparison.</em>
+</p>
 
 ## 📊 Results: RF vs. CNN
 
@@ -86,15 +82,13 @@ Here is a direct visual comparison of the models' predictions and their confusio
 | Random Forest | Convolutional Neural Network (CNN) |
 | :---: | :---: |
 | **Prediction Plot (16 Images)** | **Prediction Plot (16 Images)** |
-| ![RF Prediction Plot](images/rf_prediction_plot.jpg) | ![CNN Prediction Plot](images/cnn_prediction_plot.jpg) |
-| *The RF model making several errors (in red) on similar items like "shirt" and "top".* | *[Placeholder: Add CNN prediction plot here once available]* |
+| ![RF Prediction Plot](images/RF-Prediction-Plot.png) | **(Placeholder)** <br> *[Add CNN prediction plot here]* |
+| *The RF model making several errors (in red) on similar items like "shirt" and "top".* | *CNN model plot will show fewer errors.* |
 | **Confusion Matrix** | **Normalized Confusion Matrix** |
-| ![RF Confusion Matrix](images/rf_confusion_matrix.png) | ![CNN Confusion Matrix](images/cnn_confusion_matrix.png) |
-| *The RF matrix shows significant confusion between classes 0, 2, 4, and 6 (T-shirt, Pullover, Coat, Shirt).* | *[Placeholder: Add CNN confusion matrix here once available]* |
+| ![RF Confusion Matrix](images/RF-Error-Matrix.png) | **(Placeholder)** <br> *[Add CNN confusion matrix here]* |
+| *The RF matrix shows significant confusion between classes 0, 2, 4, and 6 (T-shirt, Pullover, Coat, Shirt).* | *CNN matrix will show a cleaner diagonal line.* |
 
-### Conclusion
-
-The CNN model handled the image classification task significantly better than the Random Forest model. This suggests that for complex, high-dimensional image data like Fashion-MNIST, **deep learning architectures like CNNs are a more appropriate and powerful choice** as they can learn relevant features automatically.
+---
 
 ## 🧠 Random Forest Model Deep-Dive
 
@@ -102,8 +96,8 @@ For a deeper look at the Random Forest model's behavior and performance characte
 
 | Confidence vs. Accuracy | Prediction Histogram | Predicted vs. Actual Labels |
 | :---: | :---: | :---: |
-| ![RF Confidence vs Accuracy](images/rf_confidence_accuracy.png) | ![RF Prediction Histogram](images/rf_prediction_histogram.png) | ![RF Label Distribution](images/rf_label_distribution.png) |
-| *This plot shows how the model's accuracy changes with its predicted confidence levels.* | *A histogram of the prediction probabilities for the validation data, indicating the distribution of model certainty.* | *Compares the distribution of labels predicted by the RF model against the actual validation set labels.* |
+| ![RF Confidence vs Accuracy](images/rf_confidence_accuracy.png) | ![RF Prediction Histogram](images/RF-Validation.png) | ![RF Label Distribution](images/rf_prediction_accuracy.png) |
+| *This plot shows how the model's accuracy changes with its predicted confidence levels.* | *A histogram of the prediction probabilities for the validation data, indicating model certainty.* | *Compares the distribution of labels predicted by the RF model against the actual validation set labels.* |
 
 ---
 
@@ -113,8 +107,8 @@ To replicate our analysis and run the models:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/UC-Berkeley-I-School/Project2-Powers-Lang-Liang.git](https://github.com/UC-Berkeley-I-School/Project2-Powers-Lang-Liang.git)
-    cd Project2-Powers-Lang-Liang
+    git clone [https://github.com/rPowDS/Project-1.git](https://github.com/rPowDS/Project-1.git)
+    cd Project-1
     ```
 
 2.  **Install the required libraries.** We recommend using a virtual environment.

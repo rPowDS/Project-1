@@ -8,7 +8,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg" alt="Python 3.9+">
-  <img src="https://img.shields.io/badge/TensorFlow-2.x-FF6F00.svg" alt="TensorFlow">
+  <img src="https://img.io/badge/TensorFlow-2.x-FF6F00.svg" alt="TensorFlow">
   <img src="https://img.shields.io/badge/Scikit--Learn-1.x-F89939.svg" alt="Scikit-Learn">
   <img src="https://img.shields.io/badge/Project-Complete-green.svg" alt="Project Complete">
 </p>
@@ -19,10 +19,10 @@
 
 This repository explores two machine learning approaches for the Fashion-MNIST dataset. Here's what you'll find:
 
-* **Project Report:** [**Read the full PDF Report**](Copy%20of%20DS200%20Project2%20Report.docx.pdf)
-* **Project Slides:** [**View the Presentation Slides**](DS200%20Analyzing%20Fashion-MNIST%20dataset.pdf)
-* **Notebook 1:** [**Random Forest Classifier**](Randomforest_Project2-3.ipynb)
-* **Notebook 2:** [**CNN Classifier**](fashion-mnist_tensorflow_cnn-2.ipynb)
+* **Project Report:** [**Read the full PDF Report**](Project_Report.pdf) *(Please rename your `Copy of DS200 Project2 Report.docx.pdf` to `Project_Report.pdf`)*
+* **Project Slides:** [**View the Presentation Slides**](Project_Slides.pdf) *(Please rename your `DS200 Analyzing Fashion-MNIST dataset.pdf` to `Project_Slides.pdf`)*
+* **Notebook 1:** [**Random Forest Classifier**](1_Random_Forest_Classifier.ipynb)
+* **Notebook 2:** [**CNN Classifier**](2_CNN_Classifier.ipynb)
 
 ---
 
@@ -37,6 +37,12 @@ We implemented, trained, and evaluated both models from scratch to compare their
 ## 💾 The Dataset
 
 We used the **Fashion-MNIST dataset**, a popular "drop-in replacement" for the original MNIST dataset, which is more complex and provides a better benchmark for modern ML algorithms.
+
+<p align="center">
+  <img src="images/fashion_mnist_examples.png" width="500" alt="Examples of Fashion-MNIST images">
+  <br>
+  <em>A sample of images from the Fashion-MNIST dataset, illustrating the 10 distinct classes.</em>
+</p>
 
 * **Contents:** 70,000 grayscale images (60k training, 10k test)
 * **Image Size:** $28 \times 28$ pixels
@@ -73,18 +79,33 @@ Our analysis showed a clear performance difference. The CNN, which is designed f
 | **Random Forest** | ~82% | Struggled to distinguish between similar classes (e.g., "Shirt" vs. "T-shirt/top"). |
 | **CNN** | **~92%** | Effectively learned image features, leading to high accuracy and better generalization. |
 
-### Visualizing the Results
+### Visualizing Model Performance
 
-* **(Pro-Tip):** This is where you should add the best images from your reports! I'll put placeholders here for you. You can add your images by dragging and dropping them into an issue on your GitHub repo to get a URL, or just adding them to the repo and linking to them directly.*
+Here is a direct visual comparison of the models' predictions and their confusion matrices.
 
-| Random Forest Prediction Plot | CNN Prediction Plot |
+| Random Forest | Convolutional Neural Network (CNN) |
 | :---: | :---: |
-| ![RF Prediction Plot](path/to/your/RF_Prediction_Plot.png) | ![CNN Prediction Plot](path/to/your/CNN_Prediction_Plot.png) |
-| *The RF model making several errors on similar items. Red text indicates a misclassification.* | *The CNN model correctly classifies a wider variety of items.* |
+| **Prediction Plot (16 Images)** | **Prediction Plot (16 Images)** |
+| ![RF Prediction Plot](images/rf_prediction_plot.jpg) | ![CNN Prediction Plot](images/cnn_prediction_plot.jpg) |
+| *The RF model making several errors (in red) on similar items like "shirt" and "top".* | *[Placeholder: Add CNN prediction plot here once available]* |
+| **Confusion Matrix** | **Normalized Confusion Matrix** |
+| ![RF Confusion Matrix](images/rf_confusion_matrix.png) | ![CNN Confusion Matrix](images/cnn_confusion_matrix.png) |
+| *The RF matrix shows significant confusion between classes 0, 2, 4, and 6 (T-shirt, Pullover, Coat, Shirt).* | *[Placeholder: Add CNN confusion matrix here once available]* |
 
 ### Conclusion
 
 The CNN model handled the image classification task significantly better than the Random Forest model. This suggests that for complex, high-dimensional image data like Fashion-MNIST, **deep learning architectures like CNNs are a more appropriate and powerful choice** as they can learn relevant features automatically.
+
+## 🧠 Random Forest Model Deep-Dive
+
+For a deeper look at the Random Forest model's behavior and performance characteristics:
+
+| Confidence vs. Accuracy | Prediction Histogram | Predicted vs. Actual Labels |
+| :---: | :---: | :---: |
+| ![RF Confidence vs Accuracy](images/rf_confidence_accuracy.png) | ![RF Prediction Histogram](images/rf_prediction_histogram.png) | ![RF Label Distribution](images/rf_label_distribution.png) |
+| *This plot shows how the model's accuracy changes with its predicted confidence levels.* | *A histogram of the prediction probabilities for the validation data, indicating the distribution of model certainty.* | *Compares the distribution of labels predicted by the RF model against the actual validation set labels.* |
+
+---
 
 ## 🛠️ How to Run This Project
 
@@ -102,5 +123,5 @@ To replicate our analysis and run the models:
     ```
 
 3.  **Run the Jupyter Notebooks:**
-    * For the Random Forest model: `Randomforest_Project2-3.ipynb`
-    * For the CNN model: `fashion-mnist_tensorflow_cnn-2.ipynb`
+    * For the Random Forest model: `1_Random_Forest_Classifier.ipynb`
+    * For the CNN model: `2_CNN_Classifier.ipynb`
